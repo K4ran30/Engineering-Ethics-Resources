@@ -43,15 +43,6 @@ nav ul li a:hover {
     background-color: #4caf50;
 }
 
-.homepage {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 50px;
-    max-width: 1200px;
-    margin: auto;
-}
-
 .content {
     max-width: 50%;
     text-align: center;
@@ -99,6 +90,27 @@ nav ul li a:hover {
     text-align: center;
     margin-bottom: 30px;
 }
+.video {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+}
+
+.video iframe {
+    max-width: 100%;
+    height: auto;
+    border-radius: 10px;
+}
+
+.homepage {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 50px 20px;
+    text-align: center;
+}
 
 footer {
     text-align: center;
@@ -107,3 +119,5 @@ footer {
     padding: 10px 0;
     margin-top: 30px;
 }
+
+
