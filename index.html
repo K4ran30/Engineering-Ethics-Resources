@@ -4,10 +4,50 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Understanding Ethics</title>
+    <!-- Meta Tags for SEO -->
+    <meta name="description" content="A comprehensive overview of ethics, including detailed case studies and an interactive quiz to test your knowledge.">
+    <meta name="keywords" content="Ethics, Philosophy, Data Privacy, AI Bias, Sustainable Engineering, Quiz">
+    <meta name="author" content="Your Name">
     <!-- Link to external CSS -->
     <link rel="stylesheet" href="styles.css">
+    <!-- Favicon -->
+    <link rel="icon" href="images/favicon.ico" type="image/x-icon">
+    <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <!-- Google Analytics (Replace 'YOUR_TRACKING_ID' with actual ID) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=YOUR_TRACKING_ID"></script>
+    <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    
+    gtag('config', 'YOUR_TRACKING_ID');
+    </script>
 </head>
 <body>
+
+    <!-- Loading Indicator -->
+    <div id="loading" class="loading">
+        <div class="spinner"></div>
+    </div>
+
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <ul>
+            <li><a href="#what-is-ethics">What is Ethics?</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#case-studies">Case Studies</a></li>
+            <li><a href="#quiz">Quiz</a></li>
+            <li><a href="#testimonials">Testimonials</a></li>
+            <li><a href="#references">References</a></li>
+            <li><a href="#resources">Resources</a></li>
+            <li><a href="#contact">Contact</a></li>
+            <li><a href="#sitemap">Sitemap</a></li>
+        </ul>
+    </nav>
 
     <!-- Header Section -->
     <header class="header">
@@ -16,7 +56,7 @@
     </header>
 
     <!-- What is Ethics Section -->
-    <section id="what-is-ethics" class="description">
+    <section id="what-is-ethics" class="description section">
         <h2>What is Ethics?</h2>
         <!-- Embedded Video -->
         <div class="video-container">
@@ -31,8 +71,14 @@
         <p>Ethics is the branch of philosophy that involves systematizing, defending, and recommending concepts of right and wrong behavior. It seeks to answer fundamental questions about how we should act and what we owe to others, providing a framework for making moral decisions in various aspects of life.</p>
     </section>
 
+    <!-- About Section -->
+    <section id="about" class="about section">
+        <h2>About This Website</h2>
+        <p>This website is designed to provide a comprehensive understanding of ethics, exploring fundamental principles and real-world applications through detailed case studies and interactive quizzes. Whether you're a student, professional, or simply curious, "Understanding Ethics" aims to foster informed and responsible decision-making.</p>
+    </section>
+
     <!-- Case Studies Section -->
-    <section id="case-studies" class="case-studies">
+    <section id="case-studies" class="case-studies section">
         <h2>Case Studies</h2>
         
         <!-- Case Study 1 -->
@@ -64,8 +110,59 @@
         
     </section>
 
-    <!-- Interactive Quiz Section -->
-    <section id="quiz" class="quiz">
+    <!-- Testimonials Section -->
+    <section id="testimonials" class="testimonials section">
+        <h2>What Users Say</h2>
+        <div class="testimonial-container">
+            <div class="testimonial">
+                <p>"This website provided me with a clear and comprehensive understanding of ethics. Highly recommended!"</p>
+                <p>- Jane Doe</p>
+            </div>
+            <div class="testimonial">
+                <p>"The case studies are well-researched and insightful. Great resource for students and professionals alike."</p>
+                <p>- John Smith</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- References Section -->
+    <section id="references" class="references section">
+        <h2>References</h2>
+        <ul>
+            <li><a href="https://www.example.com/data-privacy-research" target="_blank">Data Privacy Research Article</a></li>
+            <li><a href="https://www.example.com/ai-bias-research" target="_blank">AI and Bias Research Article</a></li>
+            <li><a href="https://www.example.com/sustainable-engineering-research" target="_blank">Sustainable Engineering Research Article</a></li>
+            <!-- Add more references as needed -->
+        </ul>
+    </section>
+
+    <!-- Resources Section -->
+    <section id="resources" class="resources section">
+        <h2>Downloadable Resources</h2>
+        <div class="resources-container">
+            <a href="downloads/Ethics_Guide.pdf" download class="resource-button">
+                <h3>Ethics Guide</h3>
+                <p>A comprehensive guide on ethical principles and practices.</p>
+            </a>
+            <a href="downloads/Case_Studies.pdf" download class="resource-button">
+                <h3>Case Studies Compilation</h3>
+                <p>Detailed case studies on various ethical dilemmas.</p>
+            </a>
+        </div>
+    </section>
+
+    <!-- Social Sharing Buttons -->
+    <section class="social-sharing section">
+        <h2>Share This Page</h2>
+        <div class="social-buttons">
+            <a href="https://www.facebook.com/sharer/sharer.php?u=https://www.yourwebsite.com" target="_blank" aria-label="Share on Facebook"><img src="images/facebook-icon.png" alt="Facebook"></a>
+            <a href="https://twitter.com/intent/tweet?url=https://www.yourwebsite.com&text=Check out this great Ethics website!" target="_blank" aria-label="Share on Twitter"><img src="images/twitter-icon.png" alt="Twitter"></a>
+            <a href="https://www.linkedin.com/shareArticle?mini=true&url=https://www.yourwebsite.com&title=Understanding%20Ethics&summary=Explore%20the%20principles%20that%20guide%20our%20decisions%20and%20actions.&source=" target="_blank" aria-label="Share on LinkedIn"><img src="images/linkedin-icon.png" alt="LinkedIn"></a>
+        </div>
+    </section>
+
+    <!-- Quiz Section -->
+    <section id="quiz" class="quiz section">
         <h2>Test Your Ethics Knowledge</h2>
         <div class="quiz-container">
             <form id="quiz-form">
@@ -96,10 +193,57 @@
         </div>
     </section>
 
+    <!-- Contact Section -->
+    <section id="contact" class="contact section">
+        <h2>Contact Us</h2>
+        <form id="contact-form" action="#" method="post">
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name" required>
+
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required>
+
+            <label for="message">Message:</label>
+            <textarea id="message" name="message" rows="5" required></textarea>
+
+            <button type="submit">Send Message</button>
+        </form>
+    </section>
+
+    <!-- Sitemap Section -->
+    <section id="sitemap" class="sitemap section">
+        <h2>Sitemap</h2>
+        <ul>
+            <li><a href="#what-is-ethics">What is Ethics?</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#case-studies">Case Studies</a></li>
+            <li><a href="#quiz">Quiz</a></li>
+            <li><a href="#testimonials">Testimonials</a></li>
+            <li><a href="#references">References</a></li>
+            <li><a href="#resources">Resources</a></li>
+            <li><a href="#contact">Contact</a></li>
+            <li><a href="#sitemap">Sitemap</a></li>
+        </ul>
+    </section>
+
+    <!-- Back to Top Button -->
+    <button id="back-to-top" title="Back to Top">↑</button>
+
     <!-- Footer -->
     <footer class="footer">
-        &copy; 2024 Understanding Ethics. All rights reserved.
+        <div class="footer-content">
+            <p>&copy; 2024 Understanding Ethics. All rights reserved.</p>
+            <p>Created by <a href="https://www.yourwebsite.com" target="_blank">Your Name</a>.</p>
+            <div class="social-media">
+                <a href="https://www.facebook.com/yourprofile" target="_blank" aria-label="Facebook"><img src="images/facebook-icon.png" alt="Facebook"></a>
+                <a href="https://www.twitter.com/yourprofile" target="_blank" aria-label="Twitter"><img src="images/twitter-icon.png" alt="Twitter"></a>
+                <a href="https://www.linkedin.com/in/yourprofile" target="_blank" aria-label="LinkedIn"><img src="images/linkedin-icon.png" alt="LinkedIn"></a>
+            </div>
+        </div>
     </footer>
+
+    <!-- Dark Mode Toggle Button -->
+    <button id="dark-mode-toggle" aria-label="Toggle Dark Mode">🌙</button>
 
     <!-- Link to external JavaScript -->
     <script src="script.js"></script>
