@@ -5,49 +5,91 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Engineering Ethics Hub</title>
     <link rel="stylesheet" href="styles.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <!-- Font Awesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" integrity="sha512-Fo3rlrQdP72gS6aIw4I1PS1lY7P0YdzxZKtvCzW4t2Nl1O4C6nWJgX0BecmJbByyrNh7fPS4a9Y4La72dQxM2A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 <body>
-<header>
-    <div class="header-container">
-        <h1>Engineering Ethics Hub</h1>
-        <nav>
-            <ul>
-                <li><a href="index.html">Home</a></li>
-                <li><a href="case-studies.html">Case Studies</a></li>
-                <li><a href="resources.html">Resources</a></li>
-                <li><a href="interactive-tools.html">Interactive Tools</a></li>
-                <li><a href="community.html">Community</a></li>
-                <li><a href="contact.html">Contact</a></li>
+    <header>
+        <div class="header-container">
+            <h1>Engineering Ethics Hub</h1>
+            <nav aria-label="Main Navigation">
+                <ul>
+                    <li><a href="index.html" class="active">Home</a></li>
+                    <li><a href="case-studies.html">Case Studies</a></li>
+                    <li><a href="resources.html">Resources</a></li>
+                    <li><a href="interactive-tools.html">Interactive Tools</a></li>
+                    <li><a href="community.html">Community</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </nav>
+            <button id="dark-mode-toggle" aria-label="Toggle Dark Mode"><i class="fas fa-moon"></i></button>
+        </div>
+    </header>
+    
+    <main>
+        <section class="homepage">
+            <div class="content">
+                <h2>Expert Design Solutions for Modern Challenges</h2>
+                <p>
+                    Welcome to the Engineering Ethics Hub, where we explore innovative solutions to ethical 
+                    dilemmas in engineering. Learn how ethical decisions impact safety, sustainability, and 
+                    community trust, and discover actionable strategies for fostering ethical practices.
+                </p>
+                <a href="about.html" class="cta-button">Learn More</a>
+            </div>
+            <div class="video">
+                <iframe 
+                    width="560" 
+                    height="315" 
+                    src="https://www.youtube.com/embed/u399XmkjeXo" 
+                    title="Engineering Ethics Video"
+                    frameborder="0" 
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                    allowfullscreen
+                    loading="lazy">
+                </iframe>
+            </div>
+        </section>
+        
+        <section class="featured-case-studies">
+            <h2>Featured Case Studies</h2>
+            <div class="slider">
+                <div class="slide active">
+                    <img src="case1.jpg" alt="Case Study 1">
+                    <h3>Case Study Title 1</h3>
+                    <p>Brief description of the first case study.</p>
+                </div>
+                <div class="slide">
+                    <img src="case2.jpg" alt="Case Study 2">
+                    <h3>Case Study Title 2</h3>
+                    <p>Brief description of the second case study.</p>
+                </div>
+                <div class="slide">
+                    <img src="case3.jpg" alt="Case Study 3">
+                    <h3>Case Study Title 3</h3>
+                    <p>Brief description of the third case study.</p>
+                </div>
+                <!-- Add more slides as needed -->
+            </div>
+            <button class="prev"><i class="fas fa-chevron-left"></i></button>
+            <button class="next"><i class="fas fa-chevron-right"></i></button>
+        </section>
+    </main>
+    
+    <footer>
+        <div class="footer-container">
+            <p>© 2024 Engineering Ethics Hub. All rights reserved.</p>
+            <ul class="social-links">
+                <li><a href="https://twitter.com/yourprofile" target="_blank" aria-label="Twitter"><i class="fab fa-twitter"></i></a></li>
+                <li><a href="https://linkedin.com/in/yourprofile" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a></li>
+                <li><a href="https://facebook.com/yourprofile" target="_blank" aria-label="Facebook"><i class="fab fa-facebook"></i></a></li>
             </ul>
-        </nav>
-    </div>
-</header>
-
-<section class="homepage">
-    <div class="content">
-        <h2>Expert Design Solutions for Modern Challenges</h2>
-        <p>
-            Welcome to the Engineering Ethics Hub, where we explore innovative solutions to ethical 
-            dilemmas in engineering. Learn how ethical decisions impact safety, sustainability, and 
-            community trust, and discover actionable strategies for fostering ethical practices.
-        </p>
-        <button class="cta-button">Learn More</button>
-    </div>
-    <div class="video">
-        <iframe 
-            width="560" 
-            height="315" 
-            src="https://www.youtube.com/embed/u399XmkjeXo" 
-            title="Engineering Ethics Video"
-            frameborder="0" 
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-            allowfullscreen>
-        </iframe>
-    </div>
-</section>
-
-<footer>
-    <p>© 2024 Engineering Ethics Hub. All rights reserved.</p>
-</footer>
+        </div>
+    </footer>
+    
+    <!-- JavaScript File -->
+    <script src="scripts.js"></script>
 </body>
 </html>
