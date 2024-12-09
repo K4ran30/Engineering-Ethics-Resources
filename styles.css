@@ -6,12 +6,12 @@
 }
 body {
     font-family: 'Roboto', sans-serif;
-    color: #333;
+    color: var(--text-color);
     line-height: 1.6;
-    background-color: #fff;
+    background-color: var(--background-color);
 }
 a {
-    color: #0071e3;
+    color: var(--primary-color);
     text-decoration: none;
 }
 a:hover {
@@ -24,14 +24,14 @@ section {
     text-align: center; /* Center all section content */
 }
 h1, h2, h3 {
-    font-weight: 600;
+    font-weight: 700;
     margin-bottom: 20px;
-    color: #000;
+    color: var(--heading-color);
 }
 p {
     margin-bottom: 20px;
     font-size: 1.1em;
-    color: #555;
+    color: var(--paragraph-color);
 }
 
 /* Root Variables for Theme */
@@ -41,11 +41,17 @@ p {
     --accent-color: #ffeb3b;
     --background-color: #f9f9f9;
     --text-color: #333;
+    --heading-color: #000;
+    --paragraph-color: #555;
     --footer-bg-color: #333;
     --footer-text-color: #fff;
     --button-bg-color: #0071e3;
     --button-text-color: #fff;
     --button-hover-bg-color: #005bb5;
+    --card-bg-color: #fff;
+    --card-border-color: #e0e0e0;
+    --card-hover-bg-color: #f0f8ff;
+    --card-shadow: rgba(0, 0, 0, 0.1);
 }
 
 /* Header */
@@ -57,11 +63,11 @@ p {
 .header h1 {
     font-size: 3em;
     margin-bottom: 20px;
-    color: #000;
+    color: var(--heading-color);
 }
 .header p {
     font-size: 1.5em;
-    color: #555;
+    color: var(--paragraph-color);
 }
 
 /* Navigation Bar */
@@ -77,6 +83,7 @@ p {
     list-style: none;
     display: flex;
     justify-content: center;
+    flex-wrap: wrap;
 }
 .navbar li {
     margin: 0 15px;
@@ -121,16 +128,16 @@ p {
     max-width: 800px;
     margin: 0 auto;
     font-size: 1.1em;
-    color: #555;
+    color: var(--paragraph-color);
 }
 
 /* Case Studies */
 .case-studies {
-    background-color: #f9f9f9;
+    background-color: var(--background-color);
 }
 .case-studies .case-study-row {
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
     padding: 30px 0;
@@ -139,7 +146,7 @@ p {
 }
 .case-studies .case-study-row:hover {
     transform: translateY(-5px);
-    background-color: #f0f8ff;
+    background-color: var(--card-hover-bg-color);
 }
 .case-studies .case-study-content {
     max-width: 800px;
@@ -147,29 +154,30 @@ p {
 }
 .case-studies .case-study-content h3 {
     margin-bottom: 15px;
-    color: #0071e3;
+    color: var(--primary-color);
     transition: color 0.3s;
 }
 .case-studies .case-study-content h3 a {
-    color: #0071e3;
+    color: var(--primary-color);
     text-decoration: none;
 }
 .case-studies .case-study-content h3 a:hover {
-    color: #005bb5;
+    color: var(--secondary-color);
     text-decoration: underline;
 }
 .case-studies .case-study-content p {
     font-size: 1em;
-    color: #555;
+    color: var(--paragraph-color);
 }
 .case-studies .read-more {
     display: inline-block;
     margin-top: 10px;
     font-weight: 500;
-    color: #0071e3;
+    color: var(--primary-color);
+    transition: color 0.3s;
 }
 .case-studies .read-more:hover {
-    color: #005bb5;
+    color: var(--secondary-color);
     text-decoration: underline;
 }
 
@@ -181,25 +189,28 @@ p {
 .ethical-topics-homelessness h2 {
     margin-bottom: 40px;
     color: #33691e;
+    font-size: 2.5em;
 }
 .ethical-topics-homelessness .ethical-topics-container {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
     gap: 30px;
+    justify-items: center;
 }
 .ethical-topics-homelessness .ethical-topic-card {
-    background-color: #fff;
-    border: 1px solid #c5e1a5;
+    background-color: var(--card-bg-color);
+    border: 1px solid var(--card-border-color);
     border-radius: 10px;
-    width: 300px;
+    width: 100%;
+    max-width: 350px;
     padding: 20px;
-    text-align: left;
+    text-align: left; /* Align text to the left within the card */
+    box-shadow: 0 4px 6px var(--card-shadow);
     transition: transform 0.3s, box-shadow 0.3s;
 }
 .ethical-topics-homelessness .ethical-topic-card:hover {
     transform: translateY(-10px);
-    box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+    box-shadow: 0 12px 24px rgba(0,0,0,0.2);
 }
 .ethical-topics-homelessness .icon-container {
     text-align: center;
@@ -212,10 +223,11 @@ p {
 .ethical-topics-homelessness .ethical-topic-card h3 {
     color: #558b2f;
     margin-bottom: 10px;
+    font-size: 1.5em;
 }
 .ethical-topics-homelessness .ethical-topic-card p {
     font-size: 1em;
-    color: #555;
+    color: var(--paragraph-color);
 }
 
 /* Resources Section */
@@ -231,26 +243,28 @@ p {
     gap: 20px;
 }
 .resource-button {
-    background-color: #fff;
+    background-color: var(--card-bg-color);
     border: 2px solid var(--primary-color);
     border-radius: 10px;
     padding: 20px;
-    width: 300px;
+    width: 100%;
+    max-width: 300px;
     text-align: left;
     transition: background-color 0.3s, transform 0.3s, box-shadow 0.3s;
     text-decoration: none;
-    color: #333;
-    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    color: var(--text-color);
+    box-shadow: 0 4px 6px var(--card-shadow);
 }
 .resource-button:hover {
     background-color: var(--primary-color);
-    color: #fff;
+    color: var(--button-text-color);
     transform: translateY(-5px);
     box-shadow: 0 8px 12px rgba(0,0,0,0.2);
 }
 .resource-button h3 {
     margin-bottom: 10px;
     color: inherit; /* Inherit color from parent */
+    font-size: 1.3em;
 }
 .resource-button p {
     font-size: 1em;
@@ -290,7 +304,8 @@ p {
 }
 .quiz .quiz-container h2 {
     margin-bottom: 30px;
-    color: #000;
+    color: var(--heading-color);
+    font-size: 2.5em;
 }
 .quiz .quiz-container .question {
     margin-bottom: 25px;
@@ -298,12 +313,13 @@ p {
 .quiz .quiz-container .question p {
     margin-bottom: 10px;
     font-weight: 500;
+    font-size: 1.2em;
 }
 .quiz .quiz-container label {
     display: block;
     margin-bottom: 8px;
     font-size: 1em;
-    color: #333;
+    color: var(--paragraph-color);
 }
 .quiz .quiz-container input[type="radio"] {
     margin-right: 10px;
@@ -337,7 +353,7 @@ p {
 }
 .quiz .quiz-container .result p {
     font-size: 1.1em;
-    color: #333;
+    color: var(--paragraph-color);
 }
 
 /* Sitemap Section */
@@ -421,6 +437,10 @@ body.dark-mode .ethical-topics-homelessness {
 body.dark-mode .ethical-topics-homelessness h2 {
     color: #bb86fc;
 }
+body.dark-mode .ethical-topics-homelessness .ethical-topics-container {
+    /* Adjust grid gap and background */
+    gap: 20px;
+}
 body.dark-mode .ethical-topics-homelessness .ethical-topic-card {
     background-color: #333;
     border: 1px solid #bb86fc;
@@ -430,6 +450,9 @@ body.dark-mode .ethical-topics-homelessness .ethical-topic-card h3 {
 }
 body.dark-mode .ethical-topics-homelessness .ethical-topic-card p {
     color: #e0e0e0;
+}
+body.dark-mode .ethical-topics-homelessness .icon-container img {
+    filter: brightness(0) invert(1);
 }
 body.dark-mode .resources {
     background-color: #1f1f1f;
@@ -520,25 +543,28 @@ body.dark-mode .sitemap a {
 .ethical-topics-homelessness h2 {
     margin-bottom: 40px;
     color: #33691e;
+    font-size: 2.5em;
 }
 .ethical-topics-homelessness .ethical-topics-container {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
     gap: 30px;
+    justify-items: center;
 }
 .ethical-topics-homelessness .ethical-topic-card {
-    background-color: #fff;
-    border: 1px solid #c5e1a5;
+    background-color: var(--card-bg-color);
+    border: 1px solid var(--card-border-color);
     border-radius: 10px;
-    width: 300px;
+    width: 100%;
+    max-width: 350px;
     padding: 20px;
     text-align: left; /* Align text to the left within the card */
+    box-shadow: 0 4px 6px var(--card-shadow);
     transition: transform 0.3s, box-shadow 0.3s;
 }
 .ethical-topics-homelessness .ethical-topic-card:hover {
     transform: translateY(-10px);
-    box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+    box-shadow: 0 12px 24px rgba(0,0,0,0.2);
 }
 .ethical-topics-homelessness .icon-container {
     text-align: center;
@@ -551,19 +577,51 @@ body.dark-mode .sitemap a {
 .ethical-topics-homelessness .ethical-topic-card h3 {
     color: #558b2f;
     margin-bottom: 10px;
+    font-size: 1.5em;
 }
 .ethical-topics-homelessness .ethical-topic-card p {
     font-size: 1em;
-    color: #555;
+    color: var(--paragraph-color);
 }
 
 /* Responsive Adjustments for Ethical Topics */
 @media (max-width: 768px) {
-    .ethical-topics-homelessness .ethical-topics-container {
+    .navbar ul {
+        flex-direction: column;
+    }
+    .navbar li {
+        margin: 10px 0;
+    }
+    .case-studies .case-study-row {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+    .case-studies .case-study-content {
+        text-align: center;
+    }
+    .video-container iframe {
+        width: 100%;
+    }
+    .header h1 {
+        font-size: 2.5em;
+    }
+    .header p {
+        font-size: 1.2em;
+    }
+    .resources-container,
+    .social-sharing .social-buttons {
         flex-direction: column;
         align-items: center;
     }
-    .ethical-topics-homelessness .ethical-topic-card {
+    .resource-button {
         width: 90%;
+    }
+    .ethical-topics-homelessness .ethical-topics-container {
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 20px;
+    }
+    .ethical-topics-homelessness .ethical-topic-card {
+        max-width: 100%;
     }
 }
