@@ -229,6 +229,100 @@ p {
     font-size: 1em;
     color: var(--paragraph-color);
 }
+/* Swiper Container */
+.swiper-container {
+    width: 100%;
+    padding-top: 20px;
+    padding-bottom: 50px;
+}
+
+/* Swiper Slide */
+.swiper-slide {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Ethical Topics and Homelessness Section */
+.ethical-topics-homelessness {
+    background-color: #f0f4c3; /* Light green background for distinction */
+    padding: 60px 20px;
+}
+.ethical-topics-homelessness h2 {
+    margin-bottom: 40px;
+    color: #33691e;
+    font-size: 2.5em;
+}
+
+/* Ethical Topic Card */
+.ethical-topic-card {
+    background-color: var(--card-bg-color);
+    border: 1px solid var(--card-border-color);
+    border-radius: 10px;
+    width: 100%;
+    max-width: 350px;
+    padding: 20px;
+    text-align: left; /* Align text to the left within the card */
+    box-shadow: 0 4px 6px var(--card-shadow);
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+.ethical-topic-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 12px 24px rgba(0,0,0,0.2);
+}
+
+/* Icon Container */
+.icon-container {
+    text-align: center;
+    margin-bottom: 15px;
+}
+.icon-container img {
+    width: 60px;
+    height: 60px;
+}
+
+/* Ethical Topic Heading */
+.ethical-topic-card h3 {
+    color: #558b2f;
+    margin-bottom: 10px;
+    font-size: 1.5em;
+}
+
+/* Ethical Topic Paragraph */
+.ethical-topic-card p {
+    font-size: 1em;
+    color: var(--paragraph-color);
+}
+
+/* Swiper Navigation Buttons */
+.swiper-button-prev,
+.swiper-button-next {
+    color: var(--primary-color);
+}
+.swiper-button-prev:hover,
+.swiper-button-next:hover {
+    color: var(--secondary-color);
+}
+
+/* Swiper Pagination Dots */
+.swiper-pagination-bullet {
+    background: var(--primary-color);
+    opacity: 0.7;
+}
+.swiper-pagination-bullet-active {
+    background: var(--secondary-color);
+    opacity: 1;
+}
+
+/* Responsive Adjustments for Ethical Topics */
+@media (max-width: 768px) {
+    .ethical-topics-homelessness h2 {
+        font-size: 2em;
+    }
+    .ethical-topic-card {
+        max-width: 300px;
+    }
+}
 
 /* Resources Section */
 .resources {
