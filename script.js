@@ -1,9 +1,11 @@
-// Wait for the DOM to load
-document.addEventListener('DOMContentLoaded', () => {
+// Wait for the entire page to load, including all dependent resources
+window.onload = function() {
     // Remove loading indicator after page loads
     const loading = document.getElementById('loading');
-    loading.style.display = 'none';
-});
+    if (loading) {
+        loading.style.display = 'none';
+    }
+};
 
 // Quiz Functionality
 function submitQuiz() {
@@ -47,28 +49,33 @@ function submitQuiz() {
 }
 
 // Contact Form Validation
-document.getElementById('contact-form').addEventListener('submit', function(event) {
-    event.preventDefault(); // Prevent actual form submission
+document.addEventListener('DOMContentLoaded', () => {
+    const contactForm = document.getElementById('contact-form');
+    if (contactForm) {
+        contactForm.addEventListener('submit', function(event) {
+            event.preventDefault(); // Prevent actual form submission
 
-    const name = document.getElementById('name').value.trim();
-    const email = document.getElementById('email').value.trim();
-    const message = document.getElementById('message').value.trim();
+            const name = document.getElementById('name').value.trim();
+            const email = document.getElementById('email').value.trim();
+            const message = document.getElementById('message').value.trim();
 
-    if(name === '' || email === '' || message === '') {
-        alert('Please fill in all fields.');
-        return;
+            if(name === '' || email === '' || message === '') {
+                alert('Please fill in all fields.');
+                return;
+            }
+
+            // Simple email validation regex
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            if(!emailRegex.test(email)) {
+                alert('Please enter a valid email address.');
+                return;
+            }
+
+            // If validation passes
+            alert('Thank you for your message! We will get back to you shortly.');
+            this.reset();
+        });
     }
-
-    // Simple email validation regex
-    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    if(!emailRegex.test(email)) {
-        alert('Please enter a valid email address.');
-        return;
-    }
-
-    // If validation passes
-    alert('Thank you for your message! We will get back to you shortly.');
-    this.reset();
 });
 
 // Back to Top Button Functionality
@@ -86,27 +93,33 @@ window.addEventListener('scroll', () => {
 });
 
 // Scroll to top when button is clicked
-backToTopButton.addEventListener('click', () => {
-    window.scrollTo({
-        top: 0,
-        behavior: 'smooth'
+if (backToTopButton) {
+    backToTopButton.addEventListener('click', () => {
+        window.scrollTo({
+            top: 0,
+            behavior: 'smooth'
+        });
     });
-});
+}
 
 // Dark Mode Toggle Functionality
 const toggleButton = document.getElementById('dark-mode-toggle');
 
-toggleButton.addEventListener('click', () => {
-    document.body.classList.toggle('dark-mode');
-    // Change button icon based on mode
-    if (document.body.classList.contains('dark-mode')) {
-        toggleButton.textContent = '☀️';
-    } else {
-        toggleButton.textContent = '🌙';
-    }
-});
+if (toggleButton) {
+    toggleButton.addEventListener('click', () => {
+        document.body.classList.toggle('dark-mode');
+        // Change button icon based on mode
+        if (document.body.classList.contains('dark-mode')) {
+            toggleButton.textContent = '☀️';
+        } else {
+            toggleButton.textContent = '🌙';
+        }
+    });
+}
 
-// Smooth Scrolling for Navigation Links (optional if CSS 'scroll-behavior: smooth;' is used)
+// Optional: Smooth Scrolling for Navigation Links (if not using CSS 'scroll-behavior: smooth;')
+// Uncomment the following code if you prefer JavaScript-based smooth scrolling
+
 /*
 const navLinks = document.querySelectorAll('.navbar a');
 
@@ -115,12 +128,16 @@ navLinks.forEach(link => {
         event.preventDefault();
         const targetId = this.getAttribute('href').substring(1);
         const targetSection = document.getElementById(targetId);
-        targetSection.scrollIntoView({ behavior: 'smooth' });
+        if (targetSection) {
+            targetSection.scrollIntoView({ behavior: 'smooth' });
+        }
     });
 });
 */
 
 // Optional: Intersection Observer for Fade-In Animations (if desired)
+// Uncomment the following code to enable fade-in animations when sections come into view
+
 /*
 const sections = document.querySelectorAll('section');
 
