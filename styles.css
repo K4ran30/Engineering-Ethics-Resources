@@ -182,14 +182,38 @@ p {
     margin-bottom: 40px;
     color: #33691e;
 }
-.ethical-topics-homelessness .ethical-topic {
-    margin-bottom: 30px;
+.ethical-topics-homelessness .ethical-topics-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 30px;
 }
-.ethical-topics-homelessness .ethical-topic h3 {
+.ethical-topics-homelessness .ethical-topic-card {
+    background-color: #fff;
+    border: 1px solid #c5e1a5;
+    border-radius: 10px;
+    width: 300px;
+    padding: 20px;
+    text-align: left;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+.ethical-topics-homelessness .ethical-topic-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+}
+.ethical-topics-homelessness .icon-container {
+    text-align: center;
+    margin-bottom: 15px;
+}
+.ethical-topics-homelessness .icon-container img {
+    width: 60px;
+    height: 60px;
+}
+.ethical-topics-homelessness .ethical-topic-card h3 {
     color: #558b2f;
     margin-bottom: 10px;
 }
-.ethical-topics-homelessness .ethical-topic p {
+.ethical-topics-homelessness .ethical-topic-card p {
     font-size: 1em;
     color: #555;
 }
@@ -397,10 +421,14 @@ body.dark-mode .ethical-topics-homelessness {
 body.dark-mode .ethical-topics-homelessness h2 {
     color: #bb86fc;
 }
-body.dark-mode .ethical-topics-homelessness .ethical-topic h3 {
+body.dark-mode .ethical-topics-homelessness .ethical-topic-card {
+    background-color: #333;
+    border: 1px solid #bb86fc;
+}
+body.dark-mode .ethical-topics-homelessness .ethical-topic-card h3 {
     color: #ffeb3b;
 }
-body.dark-mode .ethical-topics-homelessness .ethical-topic p {
+body.dark-mode .ethical-topics-homelessness .ethical-topic-card p {
     color: #e0e0e0;
 }
 body.dark-mode .resources {
@@ -484,37 +512,58 @@ body.dark-mode .sitemap a {
     background-color: var(--secondary-color);
 }
 
-/* Responsive */
+/* Ethical Topics and Homelessness Section Styles */
+.ethical-topics-homelessness {
+    background-color: #f0f4c3; /* Light green background for distinction */
+    padding: 60px 20px;
+}
+.ethical-topics-homelessness h2 {
+    margin-bottom: 40px;
+    color: #33691e;
+}
+.ethical-topics-homelessness .ethical-topics-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 30px;
+}
+.ethical-topics-homelessness .ethical-topic-card {
+    background-color: #fff;
+    border: 1px solid #c5e1a5;
+    border-radius: 10px;
+    width: 300px;
+    padding: 20px;
+    text-align: left; /* Align text to the left within the card */
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+.ethical-topics-homelessness .ethical-topic-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+}
+.ethical-topics-homelessness .icon-container {
+    text-align: center;
+    margin-bottom: 15px;
+}
+.ethical-topics-homelessness .icon-container img {
+    width: 60px;
+    height: 60px;
+}
+.ethical-topics-homelessness .ethical-topic-card h3 {
+    color: #558b2f;
+    margin-bottom: 10px;
+}
+.ethical-topics-homelessness .ethical-topic-card p {
+    font-size: 1em;
+    color: #555;
+}
+
+/* Responsive Adjustments for Ethical Topics */
 @media (max-width: 768px) {
-    .navbar ul {
-        flex-direction: column;
-    }
-    .navbar li {
-        margin: 10px 0;
-    }
-    .case-studies .case-study-row {
-        flex-direction: column;
-        align-items: center;
-        text-align: center;
-    }
-    .case-studies .case-study-content {
-        text-align: center;
-    }
-    .video-container iframe {
-        width: 100%;
-    }
-    .header h1 {
-        font-size: 2.5em;
-    }
-    .header p {
-        font-size: 1.2em;
-    }
-    .resources-container,
-    .social-sharing .social-buttons {
+    .ethical-topics-homelessness .ethical-topics-container {
         flex-direction: column;
         align-items: center;
     }
-    .resource-button {
+    .ethical-topics-homelessness .ethical-topic-card {
         width: 90%;
     }
 }
