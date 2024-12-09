@@ -3,93 +3,82 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Engineering Ethics Hub</title>
+    <title>Understanding Ethics</title>
+    <!-- Link to external CSS -->
     <link rel="stylesheet" href="styles.css">
-    <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
-    <!-- Font Awesome for Icons -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" integrity="sha512-Fo3rlrQdP72gS6aIw4I1PS1lY7P0YdzxZKtvCzW4t2Nl1O4C6nWJgX0BecmJbByyrNh7fPS4a9Y4La72dQxM2A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 <body>
-    <header>
-        <div class="header-container">
-            <h1>Engineering Ethics Hub</h1>
-            <nav aria-label="Main Navigation">
-                <ul>
-                    <li><a href="index.html" class="active">Home</a></li>
-                    <li><a href="case-studies.html">Case Studies</a></li>
-                    <li><a href="resources.html">Resources</a></li>
-                    <li><a href="interactive-tools.html">Interactive Tools</a></li>
-                    <li><a href="community.html">Community</a></li>
-                    <li><a href="contact.html">Contact</a></li>
-                </ul>
-            </nav>
-            <button id="dark-mode-toggle" aria-label="Toggle Dark Mode"><i class="fas fa-moon"></i></button>
-        </div>
+
+    <!-- Header Section -->
+    <header class="header">
+        <h1>Understanding Ethics</h1>
+        <p>Explore the principles that guide our decisions and actions.</p>
     </header>
-    
-    <main>
-        <section class="homepage">
-            <div class="content">
-                <h2>Expert Design Solutions for Modern Challenges</h2>
-                <p>
-                    Welcome to the Engineering Ethics Hub, where we explore innovative solutions to ethical 
-                    dilemmas in engineering. Learn how ethical decisions impact safety, sustainability, and 
-                    community trust, and discover actionable strategies for fostering ethical practices.
-                </p>
-                <a href="about.html" class="cta-button">Learn More</a>
+
+    <!-- What is Ethics Section -->
+    <section id="what-is-ethics" class="description">
+        <h2>What is Ethics?</h2>
+        <p>Ethics is the branch of philosophy that involves systematizing, defending, and recommending concepts of right and wrong behavior. It seeks to answer fundamental questions about how we should act and what we owe to others, providing a framework for making moral decisions in various aspects of life.</p>
+    </section>
+
+    <!-- Case Studies Section -->
+    <section id="case-studies" class="case-studies">
+        <h2>Case Studies</h2>
+        <div class="grid">
+            <div class="card">
+                <h3>Case Study 1: Data Privacy</h3>
+                <p>Exploring the ethical implications of data collection and user privacy in the digital age.</p>
             </div>
-            <div class="video">
-                <iframe 
-                    width="560" 
-                    height="315" 
-                    src="https://www.youtube.com/embed/u399XmkjeXo" 
-                    title="Engineering Ethics Video"
-                    frameborder="0" 
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-                    allowfullscreen
-                    loading="lazy">
-                </iframe>
+            <div class="card">
+                <h3>Case Study 2: AI and Bias</h3>
+                <p>Analyzing how artificial intelligence can perpetuate or mitigate societal biases.</p>
             </div>
-        </section>
-        
-        <section class="featured-case-studies">
-            <h2>Featured Case Studies</h2>
-            <div class="slider">
-                <div class="slide active">
-                    <img src="case1.jpg" alt="Case Study 1">
-                    <h3>Case Study Title 1</h3>
-                    <p>Brief description of the first case study.</p>
-                </div>
-                <div class="slide">
-                    <img src="case2.jpg" alt="Case Study 2">
-                    <h3>Case Study Title 2</h3>
-                    <p>Brief description of the second case study.</p>
-                </div>
-                <div class="slide">
-                    <img src="case3.jpg" alt="Case Study 3">
-                    <h3>Case Study Title 3</h3>
-                    <p>Brief description of the third case study.</p>
-                </div>
-                <!-- Add more slides as needed -->
+            <div class="card">
+                <h3>Case Study 3: Sustainable Engineering</h3>
+                <p>Investigating the responsibilities of engineers in promoting environmental sustainability.</p>
             </div>
-            <button class="prev"><i class="fas fa-chevron-left"></i></button>
-            <button class="next"><i class="fas fa-chevron-right"></i></button>
-        </section>
-    </main>
-    
-    <footer>
-        <div class="footer-container">
-            <p>© 2024 Engineering Ethics Hub. All rights reserved.</p>
-            <ul class="social-links">
-                <li><a href="https://twitter.com/yourprofile" target="_blank" aria-label="Twitter"><i class="fab fa-twitter"></i></a></li>
-                <li><a href="https://linkedin.com/in/yourprofile" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a></li>
-                <li><a href="https://facebook.com/yourprofile" target="_blank" aria-label="Facebook"><i class="fab fa-facebook"></i></a></li>
-            </ul>
         </div>
+    </section>
+
+    <!-- Interactive Quiz Section -->
+    <section id="quiz" class="quiz">
+        <h2>Test Your Ethics Knowledge</h2>
+        <div class="quiz-container">
+            <form id="quiz-form">
+                <div class="question">
+                    <p>1. What is the primary focus of ethics?</p>
+                    <label><input type="radio" name="q1" value="a"> A) Legal compliance</label><br>
+                    <label><input type="radio" name="q1" value="b"> B) Moral principles</label><br>
+                    <label><input type="radio" name="q1" value="c"> C) Financial success</label><br>
+                </div>
+                <div class="question">
+                    <p>2. Which principle involves fairness and impartiality?</p>
+                    <label><input type="radio" name="q2" value="a"> A) Beneficence</label><br>
+                    <label><input type="radio" name="q2" value="b"> B) Justice</label><br>
+                    <label><input type="radio" name="q2" value="c"> C) Autonomy</label><br>
+                </div>
+                <div class="question">
+                    <p>3. What does integrity in ethics primarily involve?</p>
+                    <label><input type="radio" name="q3" value="a"> A) Maximizing profits</label><br>
+                    <label><input type="radio" name="q3" value="b"> B) Honesty and transparency</label><br>
+                    <label><input type="radio" name="q3" value="c"> C) Following trends</label><br>
+                </div>
+                <button type="button" onclick="submitQuiz()">Submit</button>
+            </form>
+            <div class="result" id="quiz-result">
+                <h3>Your Ethics Score: <span id="score"></span>/3</h3>
+                <p id="feedback"></p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        &copy; 2024 Understanding Ethics. All rights reserved.
     </footer>
-    
-    <!-- JavaScript File -->
-    <script src="scripts.js"></script>
+
+    <!-- Link to external JavaScript -->
+    <script src="script.js"></script>
+
 </body>
 </html>
