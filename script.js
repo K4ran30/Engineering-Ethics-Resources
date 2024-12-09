@@ -39,35 +39,7 @@ function submitQuiz() {
     resultDiv.scrollIntoView({ behavior: 'smooth' });
 }
 
-// Contact Form Validation
-document.addEventListener('DOMContentLoaded', () => {
-    const contactForm = document.getElementById('contact-form');
-    if (contactForm) {
-        contactForm.addEventListener('submit', function(event) {
-            event.preventDefault(); // Prevent actual form submission
-
-            const name = document.getElementById('name').value.trim();
-            const email = document.getElementById('email').value.trim();
-            const message = document.getElementById('message').value.trim();
-
-            if(name === '' || email === '' || message === '') {
-                alert('Please fill in all fields.');
-                return;
-            }
-
-            // Simple email validation regex
-            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-            if(!emailRegex.test(email)) {
-                alert('Please enter a valid email address.');
-                return;
-            }
-
-            // If validation passes
-            alert('Thank you for your message! We will get back to you shortly.');
-            this.reset();
-        });
-    }
-});
+// Removed Contact Form Validation since Contact section is removed
 
 // Back to Top Button Functionality
 const backToTopButton = document.getElementById('back-to-top');
