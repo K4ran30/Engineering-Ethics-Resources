@@ -1,12 +1,3 @@
-// Wait for the entire page to load, including all dependent resources
-window.onload = function() {
-    // Remove loading indicator after page loads
-    const loading = document.getElementById('loading');
-    if (loading) {
-        loading.style.display = 'none';
-    }
-};
-
 // Quiz Functionality
 function submitQuiz() {
     const quizForm = document.getElementById('quiz-form');
