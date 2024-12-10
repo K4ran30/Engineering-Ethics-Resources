@@ -1,123 +1,70 @@
-// Quiz Functionality
-function submitQuiz() {
-    const quizForm = document.getElementById('quiz-form');
-    const resultDiv = document.getElementById('quiz-result');
-    const scoreSpan = document.getElementById('score');
-    const feedback = document.getElementById('feedback');
-    let score = 0;
+// script.js
 
-    // Answers
+// Function to handle quiz submission
+function submitQuiz() {
+    const totalQuestions = 8;
+    let score = 0;
+    let answeredQuestions = 0;
+
+    // Define correct answers
     const answers = {
         q1: 'b',
         q2: 'b',
-        q3: 'b'
+        q3: 'b',
+        q4: 'b',
+        q5: 'a',
+        q6: 'a',
+        q7: 'b',
+        q8: 'b'
     };
 
-    // Check each answer
-    for (let q in answers) {
-        const userAnswer = quizForm[q].value;
-        if (userAnswer === answers[q]) {
-            score++;
+    // Iterate through each question
+    for(let i = 1; i <= totalQuestions; i++) {
+        const userAnswer = document.querySelector(`input[name="q${i}"]:checked`);
+        if(userAnswer) {
+            answeredQuestions++;
+            if(userAnswer.value === answers[`q${i}`]) {
+                score++;
+            }
         }
     }
 
-    // Display score
+    // Check if all questions are answered
+    if(answeredQuestions < totalQuestions) {
+        alert("Please answer all questions before submitting the quiz.");
+        return;
+    }
+
+    // Display result
+    const resultDiv = document.getElementById('quiz-result');
+    const scoreSpan = document.getElementById('score');
+    const feedbackP = document.getElementById('feedback');
+
     scoreSpan.textContent = score;
 
-    // Provide detailed feedback
-    if (score === 3) {
-        feedback.innerHTML = "Excellent! You have a strong understanding of ethics.";
-    } else if (score === 2) {
-        feedback.innerHTML = "Good job! A little more study and you'll master ethics.";
+    // Provide feedback based on score
+    if(score === totalQuestions) {
+        feedbackP.textContent = "Excellent! You have a strong understanding of ethics.";
+    } else if(score >= totalQuestions * 0.7) {
+        feedbackP.textContent = "Good job! You have a solid grasp of ethical principles.";
+    } else if(score >= totalQuestions * 0.4) {
+        feedbackP.textContent = "Fair effort. Consider reviewing some ethical concepts.";
     } else {
-        feedback.innerHTML = "Keep learning! Ethics is fundamental to responsible decision-making.";
+        feedbackP.textContent = "It seems you might need to study ethics further. Don't worry, keep learning!";
     }
 
-    // Show result
     resultDiv.style.display = 'block';
-    // Scroll to result
-    resultDiv.scrollIntoView({ behavior: 'smooth' });
 }
 
-// Removed Contact Form Validation since Contact section is removed
+// Function to handle "Take the Quiz" button click
+document.addEventListener('DOMContentLoaded', function() {
+    const takeQuizButton = document.getElementById('take-quiz-button');
+    const quizForm = document.getElementById('quiz-form');
 
-// Back to Top Button Functionality
-const backToTopButton = document.getElementById('back-to-top');
-
-// Show button when scrolled down 300px
-window.addEventListener('scroll', () => {
-    if (window.pageYOffset > 300) {
-        backToTopButton.style.display = 'block';
-        backToTopButton.style.opacity = '1';
-    } else {
-        backToTopButton.style.display = 'none';
-        backToTopButton.style.opacity = '0';
-    }
-});
-
-// Scroll to top when button is clicked
-if (backToTopButton) {
-    backToTopButton.addEventListener('click', () => {
-        window.scrollTo({
-            top: 0,
-            behavior: 'smooth'
-        });
-    });
-}
-
-// Dark Mode Toggle Functionality
-const toggleButton = document.getElementById('dark-mode-toggle');
-
-if (toggleButton) {
-    toggleButton.addEventListener('click', () => {
-        document.body.classList.toggle('dark-mode');
-        // Change button icon based on mode
-        if (document.body.classList.contains('dark-mode')) {
-            toggleButton.textContent = '☀️';
-        } else {
-            toggleButton.textContent = '🌙';
-        }
-    });
-}
-
-// Optional: Smooth Scrolling for Navigation Links (if not using CSS 'scroll-behavior: smooth;')
-// Uncomment the following code if you prefer JavaScript-based smooth scrolling
-
-/*
-const navLinks = document.querySelectorAll('.navbar a');
-
-navLinks.forEach(link => {
-    link.addEventListener('click', function(event) {
-        event.preventDefault();
-        const targetId = this.getAttribute('href').substring(1);
-        const targetSection = document.getElementById(targetId);
-        if (targetSection) {
-            targetSection.scrollIntoView({ behavior: 'smooth' });
-        }
+    takeQuizButton.addEventListener('click', function() {
+        quizForm.style.display = 'block'; // Show the quiz form
+        takeQuizButton.style.display = 'none'; // Hide the "Take the Quiz" button
+        // Optionally, scroll to the quiz form
+        quizForm.scrollIntoView({ behavior: 'smooth' });
     });
 });
-*/
-
-// Optional: Intersection Observer for Fade-In Animations (if desired)
-// Uncomment the following code to enable fade-in animations when sections come into view
-
-/*
-const sections = document.querySelectorAll('section');
-
-const options = {
-    threshold: 0.1
-};
-
-const observer = new IntersectionObserver((entries, observer) => {
-    entries.forEach(entry => {
-        if(entry.isIntersecting){
-            entry.target.classList.add('visible');
-            observer.unobserve(entry.target);
-        }
-    });
-}, options);
-
-sections.forEach(section => {
-    observer.observe(section);
-});
-*/

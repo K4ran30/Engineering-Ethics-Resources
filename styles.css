@@ -28,7 +28,7 @@ section {
     text-align: center; /* Center all section content */
 }
 
-h1, h2, h3 {
+h1, h2, h3, h4 {
     font-weight: 700;
     margin-bottom: 20px;
     color: var(--heading-color);
@@ -60,77 +60,191 @@ p {
     --card-shadow: rgba(0, 0, 0, 0.1);
 }
 
+
 /* Header */
 .header {
-    background: linear-gradient(135deg, #f5f7fa, #c3cfe2);
+    position: relative;
+    width: 100%;
+    height: 100vh; /* Full viewport height for a prominent header */
+    background: url('images/header-background.jpg') no-repeat center center/cover;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.header-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5); /* Semi-transparent dark overlay */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.header-content {
     text-align: center;
-    padding: 100px 20px;
+    color: #ffffff;
+    padding: 20px;
+    max-width: 800px;
+    border-radius: 10px;
+    background: rgba(255, 255, 255, 0.1); /* Optional: subtle background for text */
 }
 
 .header h1 {
-    font-size: 3em;
+    font-size: 4em;
     margin-bottom: 20px;
-    color: var(--heading-color);
+    font-weight: 700;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
 }
 
 .header p {
     font-size: 1.5em;
-    color: var(--paragraph-color);
+    color: #f0f0f0;
+    line-height: 1.4;
+    text-shadow: 1px 1px 3px rgba(0,0,0,0.3);
 }
 
-/* Navigation Bar */
+/* Responsive Typography */
+@media (max-width: 768px) {
+    .header h1 {
+        font-size: 2.5em;
+    }
+
+    .header p {
+        font-size: 1.2em;
+    }
+}
+
+
+/* Navbar Base Styling */
 .navbar {
     background-color: var(--primary-color);
-    padding: 10px 0;
+    color: #fff;
+    padding: 10px 20px;
     position: sticky;
     top: 0;
     z-index: 1000;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
-.navbar ul {
+.navbar-container {
+    max-width: 1200px;
+    width: 100%;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.navbar-logo {
+    font-size: 1.5em;
+    font-weight: bold;
+    color: #fff;
+    text-decoration: none;
+}
+
+.navbar-toggle {
+    display: none;
+    font-size: 1.5em;
+    background: none;
+    border: none;
+    color: #fff;
+    cursor: pointer;
+}
+
+/* Navbar Menu */
+.navbar-menu {
     list-style: none;
     display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
+    gap: 20px;
 }
 
-.navbar li {
-    margin: 0 15px;
-}
-
-.navbar a {
-    color: #fff;
-    font-size: 1em;
-    transition: color 0.3s;
-}
-
-.navbar a:hover {
-    color: var(--accent-color);
-}
-
-/* Video Container */
-.video-container {
+.navbar-item {
     position: relative;
-    padding-bottom: 56.25%; /* 16:9 */
-    padding-top: 25px;
-    height: 0;
-    margin-bottom: 20px;
-    overflow: hidden;
 }
 
-.video-container iframe {
-    position: absolute;
-    top: 0;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 80%;
-    height: 100%;
-    border: 0;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-    pointer-events: none; /* Disable interactions */
+.navbar-link {
+    font-size: 1em;
+    color: #fff;
+    text-decoration: none;
+    padding: 5px 10px;
+    transition: background-color 0.3s;
 }
+
+.navbar-link:hover {
+    background-color: var(--secondary-color);
+    border-radius: 5px;
+}
+
+/* Dropdown Menu */
+.navbar-dropdown {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background-color: var(--primary-color);
+    list-style: none;
+    padding: 10px 0;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    border-radius: 5px;
+    z-index: 100;
+}
+
+.navbar-item:hover .navbar-dropdown {
+    display: block;
+}
+
+.dropdown-link {
+    color: #fff;
+    text-decoration: none;
+    padding: 10px 20px;
+    display: block;
+    transition: background-color 0.3s;
+}
+
+.dropdown-link:hover {
+    background-color: var(--accent-color);
+    border-radius: 5px;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .navbar-toggle {
+        display: block;
+    }
+
+    .navbar-menu {
+        display: none;
+        flex-direction: column;
+        gap: 0;
+        background-color: var(--primary-color);
+        width: 100%;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        border-radius: 0 0 10px 10px;
+    }
+
+    .navbar-menu.active {
+        display: flex;
+    }
+
+    .navbar-item {
+        text-align: center;
+    }
+
+    .navbar-link {
+        padding: 15px;
+    }
+}
+
 
 /* About Section */
 .about {
@@ -138,16 +252,55 @@ p {
     padding: 60px 20px;
 }
 
-.about p {
-    max-width: 800px;
-    margin: 0 auto;
+.about-container {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 40px;
+    max-width: 1500px;
+    margin: auto;
+    text-align: left; 
+}
+
+.about-text {
+    flex: 1;
+}
+
+.about-video {
+    flex: 1;
+}
+
+.about-text p {
+    margin-bottom: 20px;
     font-size: 1.1em;
     color: var(--paragraph-color);
 }
 
+/* Responsive Video Container */
+.video-container {
+    position: relative;
+    padding-bottom: 56.25%; /* 16:9 Aspect Ratio */
+    padding-top: 25px;
+    height: 0;
+    overflow: hidden;
+}
+
+.about-video iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: 0;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    /* Removed pointer-events: none; to allow interaction */
+}
+
 /* Case Studies */
 .case-studies {
-    background-color: var(--background-color);
+    background-color: #fff9c4; /* Added distinct background color */
 }
 
 .case-studies .case-study-row {
@@ -166,11 +319,17 @@ p {
 }
 
 .case-studies .case-study-content {
-    /* Increased max-width from 800px to 1000px */
     max-width: 1000px;
     width: 90%; /* Ensure responsiveness */
     text-align: left; /* Maintain left alignment */
     margin: 0 auto; /* Center the content */
+    padding: 0 10px; /* Add horizontal padding */
+}
+
+@media (min-width: 1200px) {
+    .case-studies .case-study-content {
+        padding: 0 20px; /* More padding on larger screens */
+    }
 }
 
 .case-studies .case-study-content h3 {
@@ -220,31 +379,38 @@ p {
     font-size: 2.5em;
 }
 
-/* Swiper Container */
-.ethical-topics-homelessness .swiper-container {
-    position: relative; /* Establish a new positioning context */
-    width: 100%;
-    padding-top: 20px;
-    padding-bottom: 50px;
-    overflow: hidden; /* Ensure no overflow */
+.ethical-topics-homelessness .sub-section {
+    margin-bottom: 60px;
 }
 
-/* Swiper Slide */
-.ethical-topics-homelessness .swiper-slide {
-    display: block; /* Ensure default display */
+.ethical-topics-homelessness .sub-section h3 {
+    margin-bottom: 30px;
+    color: #558b2f;
+    font-size: 2em;
+    border-bottom: 2px solid #558b2f;
+    display: inline-block;
+    padding-bottom: 5px;
+    margin-left: auto;
+    margin-right: auto;
 }
 
-/* Ethical Topic Card */
+.ethical-topics-homelessness .ethical-topics-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 20px;
+    justify-items: center;
+}
+
 .ethical-topics-homelessness .ethical-topic-card {
     background-color: var(--card-bg-color);
     border: 1px solid var(--card-border-color);
     border-radius: 10px;
-    width: 100%;
-    max-width: 380px;
     padding: 20px;
-    text-align: center; /* Align text to the left within the card */
+    text-align: center; /* Center text within the card */
     box-shadow: 0 4px 6px var(--card-shadow);
     transition: transform 0.3s, box-shadow 0.3s;
+    max-width: 380px;
+    width: 100%;
 }
 
 .ethical-topics-homelessness .ethical-topic-card:hover {
@@ -252,7 +418,6 @@ p {
     box-shadow: 0 12px 24px rgba(0,0,0,0.2);
 }
 
-/* Icon Container */
 .ethical-topics-homelessness .icon-container {
     text-align: center;
     margin-bottom: 15px;
@@ -263,119 +428,82 @@ p {
     height: 60px;
 }
 
-/* Ethical Topic Heading */
-.ethical-topics-homelessness .ethical-topic-card h3 {
+.ethical-topics-homelessness .ethical-topic-card h4 {
     color: #558b2f;
     margin-bottom: 10px;
     font-size: 1.5em;
 }
 
-/* Ethical Topic Paragraph */
 .ethical-topics-homelessness .ethical-topic-card p {
     font-size: 1em;
     color: var(--paragraph-color);
 }
 
-/* Swiper Navigation Buttons Customization for Ethical Topics Section */
-.ethical-topics-homelessness .swiper-button-prev,
-.ethical-topics-homelessness .swiper-button-next {
-    width: 40px;
-    height: 40px;
-    background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    cursor: pointer;
-    transition: background-color 0.3s;
-    position: absolute; /* Ensure absolute positioning within Swiper container */
-    top: 50%; /* Vertically center the buttons */
-    transform: translateY(-50%); /* Adjust for perfect centering */
-    z-index: 10; /* Ensure buttons appear above other elements */
+.ethical-topics-homelessness .ethical-topic-card.cause {
+    border-left: 5px solid #ff9800; /* Orange border for causes */
 }
 
-/* Create arrow shapes using pseudo-elements */
-.ethical-topics-homelessness .swiper-button-prev::after,
-.ethical-topics-homelessness .swiper-button-next::after {
-    content: '';
-    display: block;
-    width: 10px;
-    height: 10px;
-    border-top: 3px solid white;
-    border-right: 3px solid white;
+.ethical-topics-homelessness .ethical-topic-card.effect {
+    border-left: 5px solid #f44336; /* Red border for effects */
 }
 
-.ethical-topics-homelessness .swiper-button-prev {
-    left: 10px; /* Position 10px from the left */
-    transform: translateY(-50%) rotate(-135deg); /* Point left */
-}
-
-.ethical-topics-homelessness .swiper-button-next {
-    right: 10px; /* Position 10px from the right */
-    transform: translateY(-50%) rotate(45deg); /* Point right */
-}
-
-/* Hover effect */
-.ethical-topics-homelessness .swiper-button-prev:hover,
-.ethical-topics-homelessness .swiper-button-next:hover {
-    background-color: rgba(0, 0, 0, 0.7);
-}
-
-/* Swiper Pagination Dots */
-.ethical-topics-homelessness .swiper-pagination-bullet {
-    background: var(--primary-color);
-    opacity: 0.7;
-}
-
-.ethical-topics-homelessness .swiper-pagination-bullet-active {
-    background: var(--secondary-color);
-    opacity: 1;
-}
-
-/* Resources Section */
-.resources {
-    background-color: #f3e5f5;
+/* Solutions Section */
+.solutions {
+    background-color: #e8f5e9; /* Light green background for distinction */
     padding: 60px 20px;
 }
 
-.resources-container {
+.solutions h2 {
+    margin-bottom: 50px;
+    color: #2e7d32;
+    font-size: 2.5em;
+}
+
+/* Individual Solution */
+.solution {
     display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 20px;
-}
-
-.resource-button {
-    background-color: var(--card-bg-color);
-    border: 2px solid var(--primary-color);
-    border-radius: 10px;
-    padding: 20px;
-    width: 100%;
-    max-width: 300px;
+    align-items: flex-start;
+    margin-bottom: 40px;
     text-align: left;
-    transition: background-color 0.3s, transform 0.3s, box-shadow 0.3s;
-    text-decoration: none;
-    color: var(--text-color);
-    box-shadow: 0 4px 6px var(--card-shadow);
 }
 
-.resource-button:hover {
-    background-color: var(--primary-color);
-    color: var(--button-text-color);
-    transform: translateY(-5px);
-    box-shadow: 0 8px 12px rgba(0,0,0,0.2);
+.solution-icon {
+    flex: 0 0 60px; /* Fixed width for icons */
+    margin-right: 20px;
 }
 
-.resource-button h3 {
+.solution-icon img {
+    width: 60px;
+    height: 60px;
+}
+
+.solution-content {
+    flex: 1;
+}
+
+.solution-content h3 {
+    color: #2e7d32;
     margin-bottom: 10px;
-    color: inherit; /* Inherit color from parent */
-    font-size: 1.3em;
+    font-size: 1.8em;
 }
 
-.resource-button p {
-    font-size: 1em;
-    color: inherit;
+.solution-content p {
+    font-size: 1.1em;
+    color: var(--paragraph-color);
+    line-height: 1.6;
+}
+
+/* Alternating Background for Solutions (Optional) */
+.solution:nth-child(even) {
+    background-color: #c8e6c9;
+    padding: 20px;
+    border-radius: 10px;
+}
+
+.solution:nth-child(odd) {
+    background-color: #e8f5e9;
+    padding: 20px;
+    border-radius: 10px;
 }
 
 /* Social Sharing Section */
@@ -409,19 +537,48 @@ p {
 }
 
 .quiz .quiz-container {
-    max-width: 700px;
+    max-width: 800px; /* Increased width for more questions */
     margin: auto;
     text-align: left; /* Align quiz form to the left within container */
+    background-color: #ffffff; /* White background for contrast */
+    padding: 40px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
 }
 
 .quiz .quiz-container h2 {
     margin-bottom: 30px;
     color: var(--heading-color);
     font-size: 2.5em;
+    text-align: center; /* Center the heading */
+}
+
+/* Take the Quiz Button */
+.take-quiz-button {
+    background-color: var(--primary-color);
+    color: var(--button-text-color);
+    border: none;
+    padding: 15px 30px;
+    font-size: 1.2em;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    display: block;
+    margin: 0 auto; /* Center the button */
+}
+
+.take-quiz-button:hover {
+    background-color: var(--secondary-color);
 }
 
 .quiz .quiz-container .question {
     margin-bottom: 25px;
+    padding: 15px;
+    border-bottom: 1px solid #e0e0e0;
+}
+
+.quiz .quiz-container .question:last-child {
+    border-bottom: none;
 }
 
 .quiz .quiz-container .question p {
@@ -435,10 +592,12 @@ p {
     margin-bottom: 8px;
     font-size: 1em;
     color: var(--paragraph-color);
+    cursor: pointer;
 }
 
 .quiz .quiz-container input[type="radio"] {
     margin-right: 10px;
+    cursor: pointer;
 }
 
 .quiz .quiz-container button {
@@ -451,6 +610,9 @@ p {
     cursor: pointer;
     transition: background-color 0.3s;
     margin-top: 20px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .quiz .quiz-container button:hover {
@@ -475,54 +637,6 @@ p {
 .quiz .quiz-container .result p {
     font-size: 1.1em;
     color: var(--paragraph-color);
-}
-
-/* Sitemap Section */
-.sitemap {
-    background-color: #e1bee7;
-    padding: 60px 20px;
-}
-
-.sitemap ul {
-    list-style: none;
-    max-width: 800px;
-    margin: 0 auto;
-    text-align: left;
-}
-
-.sitemap li {
-    margin-bottom: 10px;
-}
-
-.sitemap a {
-    color: var(--primary-color);
-    text-decoration: none;
-    font-weight: 500;
-}
-
-.sitemap a:hover {
-    text-decoration: underline;
-}
-
-/* Back to Top Button */
-#back-to-top {
-    display: none; /* Hidden by default */
-    position: fixed;
-    bottom: 40px;
-    right: 40px;
-    z-index: 100;
-    background-color: var(--primary-color);
-    color: #fff;
-    border: none;
-    padding: 15px;
-    border-radius: 50%;
-    font-size: 1.2em;
-    cursor: pointer;
-    transition: background-color 0.3s, opacity 0.3s;
-}
-
-#back-to-top:hover {
-    background-color: var(--secondary-color);
 }
 
 /* Dark Mode Styles */
@@ -575,18 +689,12 @@ body.dark-mode .ethical-topics-homelessness h2 {
     color: #bb86fc;
 }
 
-body.dark-mode .ethical-topics-homelessness .swiper-button-prev,
-body.dark-mode .ethical-topics-homelessness .swiper-button-next,
-body.dark-mode .ethical-topics-homelessness .swiper-pagination-bullet {
-    color: #bb86fc;
-}
-
 body.dark-mode .ethical-topics-homelessness .ethical-topic-card {
     background-color: #333;
     border: 1px solid #bb86fc;
 }
 
-body.dark-mode .ethical-topics-homelessness .ethical-topic-card h3 {
+body.dark-mode .ethical-topics-homelessness .ethical-topic-card h4 {
     color: #ffeb3b;
 }
 
@@ -621,21 +729,60 @@ body.dark-mode .social-sharing a img {
     filter: brightness(0) invert(1);
 }
 
-body.dark-mode .quiz {
-    background-color: #1f1f1f;
+body.dark-mode .quiz .quiz-container {
+    background-color: #2c2c2c;
+    box-shadow: 0 4px 8px rgba(255,255,255,0.1);
 }
 
 body.dark-mode .quiz .quiz-container .result {
-    background-color: #333;
+    background-color: #424242;
     border: 1px solid #bb86fc;
 }
 
-body.dark-mode .sitemap {
+body.dark-mode .quiz .quiz-container .result p {
+    color: #e0e0e0;
+}
+
+body.dark-mode .quiz .quiz-container .question p {
+    color: #bb86fc;
+}
+
+body.dark-mode .quiz .quiz-container label {
+    color: #e0e0e0;
+}
+
+body.dark-mode .quiz .quiz-container button {
+    background-color: #bb86fc;
+    color: #1f1f1f;
+}
+
+body.dark-mode .quiz .quiz-container button:hover {
+    background-color: #9c47ff;
+}
+
+body.dark-mode .footer {
     background-color: #1f1f1f;
 }
 
-body.dark-mode .sitemap a {
+body.dark-mode .footer a {
     color: #bb86fc;
+}
+
+body.dark-mode .footer a:hover {
+    color: #fff;
+}
+
+/* Footer Sitemap Styling in Dark Mode */
+body.dark-mode .footer .footer-sitemap h2 {
+    color: #bb86fc;
+}
+
+body.dark-mode .footer .footer-sitemap a {
+    color: #bb86fc;
+}
+
+body.dark-mode .footer .footer-sitemap a:hover {
+    color: #fff;
 }
 
 /* Footer */
@@ -674,6 +821,56 @@ body.dark-mode .sitemap a {
     transform: scale(1.1);
 }
 
+/* Added Sitemap Styling within Footer */
+.footer .footer-sitemap {
+    margin-top: 30px;
+}
+
+.footer .footer-sitemap h2 {
+    font-size: 1.8em;
+    margin-bottom: 15px;
+}
+
+.footer .footer-sitemap ul {
+    list-style: none;
+    padding: 0;
+}
+
+.footer .footer-sitemap li {
+    margin-bottom: 10px;
+}
+
+.footer .footer-sitemap a {
+    color: var(--primary-color);
+    font-weight: 500;
+}
+
+.footer .footer-sitemap a:hover {
+    color: var(--secondary-color);
+    text-decoration: underline;
+}
+
+/* Back to Top Button */
+#back-to-top {
+    display: none; /* Hidden by default */
+    position: fixed;
+    bottom: 40px;
+    right: 40px;
+    z-index: 100;
+    background-color: var(--primary-color);
+    color: #fff;
+    border: none;
+    padding: 15px;
+    border-radius: 50%;
+    font-size: 1.2em;
+    cursor: pointer;
+    transition: background-color 0.3s, opacity 0.3s;
+}
+
+#back-to-top:hover {
+    background-color: var(--secondary-color);
+}
+
 /* Dark Mode Toggle Button */
 #dark-mode-toggle {
     position: fixed;
@@ -694,7 +891,7 @@ body.dark-mode .sitemap a {
     background-color: var(--secondary-color);
 }
 
-/* Responsive Adjustments for Ethical Topics */
+/* Responsive Adjustments */
 @media (max-width: 768px) {
     .navbar ul {
         flex-direction: column;
@@ -712,10 +909,6 @@ body.dark-mode .sitemap a {
 
     .case-studies .case-study-content {
         text-align: center;
-    }
-
-    .video-container iframe {
-        width: 100%;
     }
 
     .header h1 {
@@ -736,10 +929,6 @@ body.dark-mode .sitemap a {
         width: 90%;
     }
 
-    .ethical-topics-homelessness .swiper-container {
-        padding-bottom: 70px; /* Increase space for pagination */
-    }
-
     .ethical-topics-homelessness h2 {
         font-size: 2em;
     }
@@ -748,17 +937,89 @@ body.dark-mode .sitemap a {
         max-width: 300px;
     }
 
-    /* Responsive Adjustments for Navigation Buttons */
-    .ethical-topics-homelessness .swiper-button-prev,
-    .ethical-topics-homelessness .swiper-button-next {
-        width: 35px;
-        height: 35px;
+    /* Responsive Adjustments for About Section */
+    .about-container {
+        flex-direction: column;
+        text-align: center;
     }
 
-    .ethical-topics-homelessness .swiper-button-prev::after,
-    .ethical-topics-homelessness .swiper-button-next::after {
-        width: 8px;
-        height: 8px;
+    .about-video {
+        margin-top: 60px;
+    }
+
+    /* Responsive Adjustments for Footer Sitemap */
+    .footer .footer-sitemap {
+        margin-top: 30px;
+    }
+
+    .footer .footer-sitemap h2 {
+        font-size: 1.5em;
+    }
+
+    .footer .footer-sitemap ul {
+        padding: 0;
+    }
+
+    .footer .footer-sitemap li {
+        margin-bottom: 8px;
     }
 }
 
+/* Solutions Section */
+.solutions {
+    background-color: #e8f5e9; /* Light green background for distinction */
+    padding: 60px 20px;
+}
+
+.solutions h2 {
+    margin-bottom: 50px;
+    color: #2e7d32;
+    font-size: 2.5em;
+}
+
+/* Individual Solution */
+.solution {
+    display: flex;
+    align-items: flex-start;
+    margin-bottom: 40px;
+    text-align: left;
+}
+
+.solution-icon {
+    flex: 0 0 60px; /* Fixed width for icons */
+    margin-right: 20px;
+}
+
+.solution-icon img {
+    width: 60px;
+    height: 60px;
+}
+
+.solution-content {
+    flex: 1;
+}
+
+.solution-content h3 {
+    color: #2e7d32;
+    margin-bottom: 10px;
+    font-size: 1.8em;
+}
+
+.solution-content p {
+    font-size: 1.1em;
+    color: var(--paragraph-color);
+    line-height: 1.6;
+}
+
+/* Alternating Background for Solutions (Optional) */
+.solution:nth-child(even) {
+    background-color: #c8e6c9;
+    padding: 20px;
+    border-radius: 10px;
+}
+
+.solution:nth-child(odd) {
+    background-color: #e8f5e9;
+    padding: 20px;
+    border-radius: 10px;
+}
