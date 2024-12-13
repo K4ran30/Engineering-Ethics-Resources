@@ -5,7 +5,6 @@ function submitQuiz() {
     const totalQuestions = 8;
     let score = 0;
     let answeredQuestions = 0;
-
     // Define correct answers
     const answers = {
         q1: 'b',
@@ -17,7 +16,6 @@ function submitQuiz() {
         q7: 'b',
         q8: 'b'
     };
-
     // Iterate through each question
     for(let i = 1; i <= totalQuestions; i++) {
         const userAnswer = document.querySelector(`input[name="q${i}"]:checked`);
