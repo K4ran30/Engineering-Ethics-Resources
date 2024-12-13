@@ -97,15 +97,21 @@ p {
     font-size: 4em;
     margin-bottom: 20px;
     font-weight: 700;
-    text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+    color: #FFD700; /* Gold */
+    text-shadow: 3px 3px 5px rgba(0, 0, 0, 0.7); /* Enhanced shadow for readability */
 }
 
 .header p {
     font-size: 1.5em;
-    color: #f0f0f0;
+    color: #ADFF2F; /* Greenish Yellow */
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.6); /* Subtle shadow for consistency */
     line-height: 1.4;
-    text-shadow: 1px 1px 3px rgba(0,0,0,0.3);
 }
+
+
+
+
+
 
 /* Responsive Typography */
 @media (max-width: 768px) {
